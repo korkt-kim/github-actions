@@ -1,5 +1,5 @@
 name: CI
-
+run-name: env test
 on: [push]
 
 jobs:

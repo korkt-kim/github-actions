@@ -1,4 +1,5 @@
 name: Context testing
+run-name: 모든 github context 출력
 on: push
 
 jobs:

@@ -24,7 +24,7 @@ jobs:
       - name: build2 test
         run: echo "build2 test"
   asdf:
-    runs-on: Ubuntu 18.04
+    runs-on: ubuntu-latest
     steps:
       - name: something good
         run: echo "good"
