@@ -1,0 +1,33 @@
+name: npm -cache
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in '~/.npm' on Linux/macOS
+          path: ~/.npm # 액션이 캐시를 찾으면 해당 디렉터리에 복원
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }} # key
+          restore-keys:
+            | # optional property. cache hit가 발생하지 않으면 해당 캐시를 찾기위한 대체 키로 검색해준다. -로 끝나면 시작하는 글자가 같으면 매칭이 된다.
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build
+            ${{ runner.os }}
+      # cache가 hit하면 이 뒤의 일은 일어나지 않는다.
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test

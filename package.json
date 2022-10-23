@@ -1,0 +1,23 @@
+{
+  "name": "221022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo test",
+    "build": "echo build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/korkt-kim/github-actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/korkt-kim/github-actions/issues"
+  },
+  "homepage": "https://github.com/korkt-kim/github-actions#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
